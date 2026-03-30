@@ -12,7 +12,7 @@ const upcomingEvents = [
   {
     title: 'Easter Service',
     date: 'Apr 3',
-    time: 'Friday • 10:00am • Sanctuary',
+    time: 'Friday • 5:00pm • Sanctuary',
     image: '/images/img_11.jpeg',
   },
   {
@@ -22,10 +22,10 @@ const upcomingEvents = [
     image: '/images/img_11.jpeg',
   },
   {
-    title: 'Midweek Worship',
-    date: 'Apr 2',
-    time: '7:00pm • Sanctuary',
-    image: '/images/event_worship.jpg',
+    title: 'Tuesday Bible Study',
+    date: 'Every Tuesday',
+    time: '5:00pm_6:00pm • Sanctuary',
+    image: '/images/img_7.jpeg',
   },
 ];
 

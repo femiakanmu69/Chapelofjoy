@@ -16,7 +16,7 @@ const events = [
     category: 'Weekly',
   },
   {
-    title: 'Midweek Service',
+    title: 'Tuesday Bible Study',
     date: 'Every Tuesday',
     time: '5:00 PM',
     location: 'Sanctuary',
@@ -34,8 +34,8 @@ const events = [
     category: 'Weekly',
   },
   {
-    title: 'Community Breakfast',
-    date: 'Last Sunday of Month',
+    title: 'Holy Communion',
+    date: 'First Sunday of Month',
     time: '8:00 AM',
     location: 'Fellowship Hall',
     description: 'Start your Sunday with fellowship and a delicious breakfast together.',
@@ -48,7 +48,7 @@ const events = [
     time: '6:30 PM',
     location: 'Gym',
     description: 'Fun, games, and fellowship for our children.',
-    image: '/images/img_3.jpeg',
+    image: '/images/img_2.jpeg',
     category: 'Monthly',
   },
   {
