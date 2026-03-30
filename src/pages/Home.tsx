@@ -173,7 +173,7 @@ export function Home() {
               CHAPEL OF JOY
             </h1>
             <p className="text-white/80 text-lg mb-6 italic">
-              Where your job is full.
+              Where your joy is full.
             </p>
             <div className="flex flex-wrap items-center gap-4 mb-8">
               <span className="flex items-center gap-2 text-white/80 text-sm">
