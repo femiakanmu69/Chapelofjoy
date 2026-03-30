@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 95%;
+    --foreground: 0 0% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 43 55% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 20% 95%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 40 15% 90%;
+    --muted-foreground: 30 5% 42%;
+    --accent: 43 55% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 15% 85%;
+    --input: 40 15% 85%;
+    --ring: 43 55% 50%;
+    --radius: 0.625rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[#F4F2EE] text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .text-eyebrow {
+    @apply text-xs font-medium tracking-[0.2em] uppercase;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-[#C69B3C] text-white font-medium rounded-lg transition-all duration-300 hover:bg-[#B58A2B] hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-white text-[#111111] font-medium rounded-lg border border-[#E5E2DC] transition-all duration-300 hover:bg-[#F4F2EE];
+  }
+  
+  .card-hover {
+    @apply transition-all duration-500 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .image-zoom {
+    @apply transition-transform duration-700 hover:scale-105;
+  }
+  
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-current after:transition-all duration-300 hover:after:w-full;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F2EE;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C69B3C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B58A2B;
+}
