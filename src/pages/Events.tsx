@@ -46,7 +46,7 @@ const events = [
     title: 'Children Fellowship',
     date: 'First Friday of Month',
     time: '6:30 PM',
-    location: 'Gym',
+    location: 'Sanctuary',
     description: 'Fun, games, and fellowship for our children.',
     image: '/images/img_2.jpeg',
     category: 'Monthly',

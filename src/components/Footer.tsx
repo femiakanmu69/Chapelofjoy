@@ -41,7 +41,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
-              Where your job is full.
+              Where your joy is full.
             </p>
             <div className="flex items-center gap-4">
               <a
