@@ -110,17 +110,35 @@ export function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success('Thank you for your message! We will get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-    });
-  };
+const encode = (data: any) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({
+      "form-name": "contact",
+      ...formData,
+    }),
+  })
+    .then(() => {
+      toast.success("Message sent successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    })
+    .catch(() => toast.error("Failed to send message"));
+};
 
   return (
     <div className="min-h-screen bg-[#F4F2EE] pt-24 lg:pt-32">
@@ -173,7 +191,14 @@ export function Contact() {
             <h2 className="font-serif text-2xl text-[#111111] mb-6">
               Send a Message
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  onSubmit={handleSubmit}
+  className="space-y-4"
+>
+  <input type="hidden" name="form-name" value="contact" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-[#111111] mb-2">
