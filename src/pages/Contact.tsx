@@ -192,13 +192,14 @@ const handleSubmit = (e: React.FormEvent) => {
               Send a Message
             </h2>
             <form
-  name="contact"
-  method="POST"
-  data-netlify="true"
-  onSubmit={handleSubmit}
-  className="space-y-4"
->
-  <input type="hidden" name="form-name" value="contact" />
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-[#111111] mb-2">
