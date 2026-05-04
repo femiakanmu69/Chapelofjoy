@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Clock, MapPin, Calendar, ArrowRight } from 'lucide-react';
+import { Clock, MapPin, Calendar } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import siteData from './content/site.json';
