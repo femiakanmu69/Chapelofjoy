@@ -1,73 +1,13 @@
 import { useEffect, useRef } from 'react';
-import { Clock, MapPin, Calendar } from 'lucide-react';
+import { Clock, MapPin, Calendar, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import siteData from './content/site.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const events = [
-  {
-    title: 'Sunday Worship Service',
-    date: 'Every Sunday',
-    time: '9:00 AM',
-    location: 'Main Sanctuary',
-    description: 'Join us for powerful worship and inspiring messages from God\'s Word.',
-    image: '/images/img_9.jpeg',
-    category: 'Weekly',
-  },
-  {
-    title: 'Tuesday Bible Study',
-    date: 'Every Tuesday',
-    time: '5:00 PM',
-    location: 'Sanctuary',
-    description: 'A midweek boost of worship, prayer, and Bible study.',
-    image: '/images/img_7.jpeg',
-    category: 'Weekly',
-  },
-  {
-    title: 'Midweek Fasting',
-    date: 'Every Wednesday',
-    time: 'All Day',
-    location: 'Church Premises',
-    description: 'Join us for midweek fasting and prayer.',
-    image: '/images/about_worship.jpg',
-    category: 'Weekly',
-  },
-  {
-    title: 'Holy Communion',
-    date: 'First Sunday of Month',
-    time: '8:00 AM',
-    location: 'Fellowship Hall',
-    description: 'Start your Sunday with fellowship and a delicious breakfast together.',
-    image: '/images/event_breakfast.jpg',
-    category: 'Monthly',
-  },
-  {
-    title: 'Children Fellowship',
-    date: 'First Friday of Month',
-    time: '6:30 PM',
-    location: 'Sanctuary',
-    description: 'Fun, games, and fellowship for our children.',
-    image: '/images/img_2.jpeg',
-    category: 'Monthly',
-  },
-  {
-    title: 'Quarterly Vigil',
-    date: 'Last Friday of Quarter',
-    time: '10:00 PM',
-    location: 'Main Sanctuary',
-    description: 'Night of prayer, worship, and spiritual renewal.',
-    image: '/images/sermon_faith.jpg',
-    category: 'Quarterly',
-  },
-];
-
-const serviceTimes = [
-  { day: 'Sunday Service', time: '9:00 AM' },
-  { day: 'Midweek Service', time: 'Tuesday 5:00 PM' },
-  { day: 'Midweek Fasting', time: 'Every Wednesday' },
-  { day: 'Quarterly Vigil', time: 'Last Friday of every quarter' },
-];
+const eventsPage = siteData.events;
+const meta = siteData.meta;
 
 export function Events() {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -80,14 +20,8 @@ export function Events() {
         '.events-header-content',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: 'top 80%',
-          },
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: headerRef.current, start: 'top 80%' },
         }
       );
 
@@ -95,15 +29,8 @@ export function Events() {
         '.event-item',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: eventsRef.current,
-            start: 'top 70%',
-          },
+          opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
+          scrollTrigger: { trigger: eventsRef.current, start: 'top 70%' },
         }
       );
 
@@ -111,14 +38,8 @@ export function Events() {
         '.service-times-content',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: timesRef.current,
-            start: 'top 80%',
-          },
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: timesRef.current, start: 'top 80%' },
         }
       );
     });
@@ -131,13 +52,12 @@ export function Events() {
       {/* Header */}
       <div ref={headerRef} className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 pb-12">
         <div className="events-header-content max-w-4xl">
-          <span className="text-eyebrow text-[#C69B3C] mb-4 block">Church Events</span>
+          <span className="text-eyebrow text-[#C69B3C] mb-4 block">{eventsPage.header_eyebrow}</span>
           <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-[#111111] mb-4">
-            Upcoming Events
+            {eventsPage.header_title}
           </h1>
           <p className="text-[#6F6A63] text-lg lg:text-xl leading-relaxed">
-            There's always something happening at Chapel Of Joy. Join us for worship, 
-            fellowship, and community activities.
+            {eventsPage.header_description}
           </p>
         </div>
       </div>
@@ -145,7 +65,7 @@ export function Events() {
       {/* Events Grid */}
       <div ref={eventsRef} className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {events.map((event, index) => (
+          {eventsPage.events.map((event, index) => (
             <div
               key={index}
               className="event-item bg-white rounded-xl overflow-hidden shadow-sm card-hover"
@@ -191,16 +111,15 @@ export function Events() {
       <div ref={timesRef} className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-16 bg-white">
         <div className="service-times-content grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-eyebrow text-[#C69B3C] mb-4 block">Service Times</span>
+            <span className="text-eyebrow text-[#C69B3C] mb-4 block">{eventsPage.service_times_eyebrow}</span>
             <h2 className="font-serif text-3xl lg:text-4xl text-[#111111] mb-6">
-              Join Us This Week
+              {eventsPage.service_times_title}
             </h2>
             <p className="text-[#6F6A63] leading-relaxed mb-8">
-              We gather regularly to worship, learn, and grow together. 
-              No matter where you are in your faith journey, you are welcome here.
+              {eventsPage.service_times_description}
             </p>
             <div className="space-y-4">
-              {serviceTimes.map((service, index) => (
+              {eventsPage.service_times.map((service, index) => (
                 <div
                   key={index}
                   className="flex items-center justify-between p-4 bg-[#F4F2EE] rounded-lg"
@@ -213,7 +132,7 @@ export function Events() {
           </div>
           <div className="relative">
             <img
-              src="/images/img_7.jpeg"
+              src={eventsPage.service_times_image}
               alt="Worship service"
               className="rounded-xl shadow-lg w-full"
             />
@@ -226,22 +145,21 @@ export function Events() {
         <div className="relative bg-[#1a1a1a] rounded-2xl overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <img
-              src="/images/visit_map.jpg"
+              src={eventsPage.location_map_image}
               alt="Location map"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="relative z-10 py-16 px-8 lg:px-16 text-center">
-            <span className="text-eyebrow text-[#C69B3C] mb-4 block">Location</span>
+            <span className="text-eyebrow text-[#C69B3C] mb-4 block">{eventsPage.location_eyebrow}</span>
             <h2 className="font-serif text-3xl lg:text-4xl text-white mb-4">
-              Visit Us in Ibadan
+              {eventsPage.location_title}
             </h2>
             <p className="text-white/70 max-w-xl mx-auto mb-6">
-              Chapel of Joy Auditorium, Opposite Lanark Hospital, Wuraola Esan Close, 
-              opposite Trumed house, new Adeoyo road, ring road Ibadan, Nigeria
+              {eventsPage.location_address}
             </p>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Chapel+of+Joy+Auditorium+Opposite+Lanark+Hospital+Wuraola+Esan+Close+new+Adeoyo+road+ring+road+Ibadan+Nigeria"
+              href={`https://www.google.com/maps/search/?api=1&query=${meta.maps_query}`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary inline-flex"

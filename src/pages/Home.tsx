@@ -3,49 +3,12 @@ import { Link } from 'react-router-dom';
 import { Clock, MapPin, Play, ArrowRight, Users } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import siteData from './content/site.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const YOUTUBE_URL = 'https://youtube.com/@chapelofjoy?si=xrOo7ih4_TvuP__E';
-
-const upcomingEvents = [
-  {
-    title: 'Easter Service',
-    date: 'Apr 3',
-    time: 'Friday • 5:00pm • Sanctuary',
-    image: '/images/img_11.jpeg',
-  },
-  {
-    title: 'Easter Celebration',
-    date: 'Apr 5',
-    time: 'Sunday • 9:00am • Sanctuary',
-    image: '/images/img_11.jpeg',
-  },
-  {
-    title: 'Tuesday Bible Study',
-    date: 'Every Tuesday',
-    time: '5:00pm_6:00pm • Sanctuary',
-    image: '/images/img_7.jpeg',
-  },
-];
-
-const ourMinistries = [
-  {
-    title: "Men's Fellowship",
-    meta: 'Growing together in faith and leadership',
-    image: '/images/img_5.jpeg',
-  },
-  {
-    title: "Women's Fellowship",
-    meta: 'Sisterhood, support, and spiritual growth',
-    image: '/images/img_1.jpeg',
-  },
-  {
-    title: 'Youth Fellowship',
-    meta: 'Empowering the next generation',
-    image: '/images/img_10.jpeg',
-  },
-];
+const YOUTUBE_URL = siteData.meta.youtube_url;
+const home = siteData.home;
 
 export function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -55,26 +18,18 @@ export function Home() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero animation
       gsap.fromTo(
         '.hero-content',
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.3 }
       );
 
-      // Events section
       gsap.fromTo(
         '.events-header',
         { opacity: 0, y: 30 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: eventsRef.current,
-            start: 'top 80%',
-          },
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: eventsRef.current, start: 'top 80%' },
         }
       );
 
@@ -82,31 +37,17 @@ export function Home() {
         '.event-card',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: eventsRef.current,
-            start: 'top 70%',
-          },
+          opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: 'power3.out',
+          scrollTrigger: { trigger: eventsRef.current, start: 'top 70%' },
         }
       );
 
-      // Ministries section
       gsap.fromTo(
         '.ministries-header',
         { opacity: 0, y: 30 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: ministriesRef.current,
-            start: 'top 80%',
-          },
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: ministriesRef.current, start: 'top 80%' },
         }
       );
 
@@ -114,31 +55,17 @@ export function Home() {
         '.ministry-card',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: ministriesRef.current,
-            start: 'top 70%',
-          },
+          opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: 'power3.out',
+          scrollTrigger: { trigger: ministriesRef.current, start: 'top 70%' },
         }
       );
 
-      // Welcome section
       gsap.fromTo(
         '.welcome-content',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: welcomeRef.current,
-            start: 'top 80%',
-          },
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: welcomeRef.current, start: 'top 80%' },
         }
       );
     });
@@ -156,7 +83,7 @@ export function Home() {
         <div
           className="hero-bg absolute inset-0 z-[1]"
           style={{
-            backgroundImage: 'url(/images/img_4.jpeg)',
+            backgroundImage: `url(${home.hero_image})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -167,22 +94,22 @@ export function Home() {
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12 pb-16 lg:pb-24">
           <div className="hero-content max-w-3xl">
             <span className="text-eyebrow text-white/80 mb-4 block">
-              In the name of Jesus Pentecostal mission
+              {home.hero_eyebrow}
             </span>
             <h1 className="font-serif text-4xl lg:text-6xl xl:text-7xl text-white mb-6 leading-tight">
-              CHAPEL OF JOY
+              {home.hero_title}
             </h1>
             <p className="text-white/80 text-lg mb-6 italic">
-              Where your joy is full.
+              {home.hero_subtitle}
             </p>
             <div className="flex flex-wrap items-center gap-4 mb-8">
               <span className="flex items-center gap-2 text-white/80 text-sm">
                 <Clock size={16} />
-                Sundays at 9:00 AM
+                {home.hero_service_time}
               </span>
               <span className="flex items-center gap-2 text-white/80 text-sm">
                 <MapPin size={16} />
-                Ibadan, Nigeria
+                {home.hero_location}
               </span>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -213,7 +140,7 @@ export function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {upcomingEvents.map((event, index) => (
+          {home.upcoming_events.map((event, index) => (
             <div
               key={index}
               className="event-card group relative rounded-xl overflow-hidden aspect-[3/4] cursor-pointer card-hover"
@@ -255,21 +182,16 @@ export function Home() {
         <div className="welcome-content grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-eyebrow text-[#C69B3C] mb-4 block">
-              About Us
+              {home.welcome_eyebrow}
             </span>
             <h2 className="font-serif text-3xl lg:text-4xl xl:text-5xl text-[#111111] mb-6">
-              Welcome to Chapel Of Joy
+              {home.welcome_title}
             </h2>
             <p className="text-[#6F6A63] text-lg leading-relaxed mb-6">
-              Chapel Of Joy has been serving the Ibadan community for over 35 years. 
-              We're a diverse group of people united by our love for Jesus and our 
-              desire to make a difference in our community.
+              {home.welcome_paragraph_1}
             </p>
             <p className="text-[#6F6A63] text-lg leading-relaxed mb-8">
-              Our mission is to help people find their way back to God through 
-              authentic worship, biblical teaching, and loving community. Whether 
-              you're new to faith or have been following Jesus for years, there's 
-              a place for you here.
+              {home.welcome_paragraph_2}
             </p>
             <Link to="/about" className="btn-primary">
               Learn More
@@ -277,13 +199,13 @@ export function Home() {
           </div>
           <div className="relative">
             <img
-              src="/images/img_6.jpeg"
+              src={home.welcome_image}
               alt="Worship at Chapel Of Joy"
               className="rounded-xl shadow-lg w-full"
             />
             <div className="absolute -bottom-6 -left-6 bg-[#C69B3C] text-white p-6 rounded-xl">
-              <p className="font-serif text-3xl font-bold">35+</p>
-              <p className="text-sm">Years of Service</p>
+              <p className="font-serif text-3xl font-bold">{home.welcome_stat_number}</p>
+              <p className="text-sm">{home.welcome_stat_label}</p>
             </div>
           </div>
         </div>
@@ -294,10 +216,10 @@ export function Home() {
         <div className="ministries-header flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
           <div>
             <span className="text-eyebrow text-[#C69B3C] mb-4 block">
-              Get Involved
+              {home.ministries_eyebrow}
             </span>
             <h2 className="font-serif text-3xl lg:text-4xl xl:text-5xl text-[#111111]">
-              Our Ministries
+              {home.ministries_title}
             </h2>
           </div>
           <Link
@@ -310,7 +232,7 @@ export function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {ourMinistries.map((ministry, index) => (
+          {home.ministries.map((ministry, index) => (
             <a
               key={index}
               href={YOUTUBE_URL}
@@ -350,20 +272,20 @@ export function Home() {
         <div className="relative bg-[#1a1a1a] rounded-2xl overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <img
-              src="/images/img_7.jpeg"
+              src={home.cta_image}
               alt="Community"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="relative z-10 py-16 lg:py-24 px-8 lg:px-16 text-center">
             <span className="text-eyebrow text-[#C69B3C] mb-4 block">
-              Get Involved
+              {home.cta_eyebrow}
             </span>
             <h2 className="font-serif text-3xl lg:text-5xl text-white mb-6">
-              Ready to take the next step?
+              {home.cta_title}
             </h2>
             <p className="text-white/70 text-lg max-w-2xl mx-auto mb-8">
-              We'd love to connect with you and help you find your place in our community.
+              {home.cta_description}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/contact" className="btn-primary">

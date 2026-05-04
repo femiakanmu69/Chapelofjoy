@@ -1,0 +1,390 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/"
+public_folder: "/images"
+
+collections:
+  - name: "home"
+    label: "Home Page"
+    folder: "src/pages/content"
+    create: false
+    delete: false
+    slug: "home"
+    fields:
+      - label: "Hero Background Image"
+        name: "hero_image"
+        widget: "image"
+
+      - label: "Hero Eyebrow"
+        name: "hero_eyebrow"
+        widget: "string"
+
+      - label: "Hero Title"
+        name: "hero_title"
+        widget: "string"
+
+      - label: "Hero Subtitle"
+        name: "hero_subtitle"
+        widget: "string"
+
+      - label: "Hero Service Time"
+        name: "hero_service_time"
+        widget: "string"
+
+      - label: "Hero Location"
+        name: "hero_location"
+        widget: "string"
+
+      - label: "Upcoming Events"
+        name: "upcoming_events"
+        widget: "list"
+        fields:
+          - label: "Event Title"
+            name: "title"
+            widget: "string"
+          - label: "Event Date"
+            name: "date"
+            widget: "string"
+          - label: "Event Time"
+            name: "time"
+            widget: "string"
+          - label: "Event Image"
+            name: "image"
+            widget: "image"
+
+      - label: "Welcome Eyebrow"
+        name: "welcome_eyebrow"
+        widget: "string"
+
+      - label: "Welcome Title"
+        name: "welcome_title"
+        widget: "string"
+
+      - label: "Welcome Paragraph 1"
+        name: "welcome_paragraph_1"
+        widget: "text"
+
+      - label: "Welcome Paragraph 2"
+        name: "welcome_paragraph_2"
+        widget: "text"
+
+      - label: "Welcome Image"
+        name: "welcome_image"
+        widget: "image"
+
+      - label: "Welcome Stat Number"
+        name: "welcome_stat_number"
+        widget: "string"
+
+      - label: "Welcome Stat Label"
+        name: "welcome_stat_label"
+        widget: "string"
+
+      - label: "Ministries Eyebrow"
+        name: "ministries_eyebrow"
+        widget: "string"
+
+      - label: "Ministries Title"
+        name: "ministries_title"
+        widget: "string"
+
+      - label: "Ministries"
+        name: "ministries"
+        widget: "list"
+        fields:
+          - label: "Ministry Title"
+            name: "title"
+            widget: "string"
+          - label: "Ministry Description"
+            name: "meta"
+            widget: "text"
+          - label: "Ministry Image"
+            name: "image"
+            widget: "image"
+
+      - label: "CTA Eyebrow"
+        name: "cta_eyebrow"
+        widget: "string"
+
+      - label: "CTA Title"
+        name: "cta_title"
+        widget: "string"
+
+      - label: "CTA Description"
+        name: "cta_description"
+        widget: "text"
+
+      - label: "CTA Background Image"
+        name: "cta_image"
+        widget: "image"
+
+  - name: "events"
+    label: "Events Page"
+    folder: "src/pages/content"
+    create: false
+    delete: false
+    slug: "events"
+    fields:
+      - label: "Header Eyebrow"
+        name: "header_eyebrow"
+        widget: "string"
+
+      - label: "Header Title"
+        name: "header_title"
+        widget: "string"
+
+      - label: "Header Description"
+        name: "header_description"
+        widget: "text"
+
+      - label: "Events"
+        name: "events"
+        widget: "list"
+        fields:
+          - label: "Event Title"
+            name: "title"
+            widget: "string"
+          - label: "Event Date"
+            name: "date"
+            widget: "string"
+          - label: "Event Time"
+            name: "time"
+            widget: "string"
+          - label: "Event Location"
+            name: "location"
+            widget: "string"
+          - label: "Event Description"
+            name: "description"
+            widget: "text"
+          - label: "Event Image"
+            name: "image"
+            widget: "image"
+          - label: "Event Category"
+            name: "category"
+            widget: "select"
+            options: ["Weekly", "Monthly", "Quarterly", "Special"]
+            default: "Weekly"
+
+      - label: "Service Times Eyebrow"
+        name: "service_times_eyebrow"
+        widget: "string"
+
+      - label: "Service Times Title"
+        name: "service_times_title"
+        widget: "string"
+
+      - label: "Service Times Description"
+        name: "service_times_description"
+        widget: "text"
+
+      - label: "Service Times Image"
+        name: "service_times_image"
+        widget: "image"
+
+      - label: "Service Times"
+        name: "service_times"
+        widget: "list"
+        fields:
+          - label: "Day"
+            name: "day"
+            widget: "string"
+          - label: "Time"
+            name: "time"
+            widget: "string"
+
+      - label: "Location Eyebrow"
+        name: "location_eyebrow"
+        widget: "string"
+
+      - label: "Location Title"
+        name: "location_title"
+        widget: "string"
+
+      - label: "Location Address"
+        name: "location_address"
+        widget: "text"
+
+      - label: "Location Map Image"
+        name: "location_map_image"
+        widget: "image"
+
+  - name: "sermons"
+    label: "Sermons Page"
+    folder: "src/pages/content"
+    create: false
+    delete: false
+    slug: "sermons"
+    fields:
+      - label: "Header Eyebrow"
+        name: "header_eyebrow"
+        widget: "string"
+
+      - label: "Header Title"
+        name: "header_title"
+        widget: "string"
+
+      - label: "Header Description"
+        name: "header_description"
+        widget: "text"
+
+      - label: "Featured Sermon Title"
+        name: "featured_title"
+        widget: "string"
+
+      - label: "Featured Sermon Pastor"
+        name: "featured_pastor"
+        widget: "string"
+
+      - label: "Featured Sermon Date"
+        name: "featured_date"
+        widget: "string"
+
+      - label: "Featured Sermon Duration"
+        name: "featured_duration"
+        widget: "string"
+
+      - label: "Featured Sermon Description"
+        name: "featured_description"
+        widget: "text"
+
+      - label: "Featured Sermon Image"
+        name: "featured_image"
+        widget: "image"
+
+      - label: "Recent Eyebrow"
+        name: "recent_eyebrow"
+        widget: "string"
+
+      - label: "Recent Title"
+        name: "recent_title"
+        widget: "string"
+
+      - label: "Recent Sermons"
+        name: "recent_sermons"
+        widget: "list"
+        fields:
+          - label: "Sermon Title"
+            name: "title"
+            widget: "string"
+          - label: "Pastor"
+            name: "pastor"
+            widget: "string"
+          - label: "Date"
+            name: "date"
+            widget: "string"
+          - label: "Duration"
+            name: "duration"
+            widget: "string"
+          - label: "Image"
+            name: "image"
+            widget: "image"
+
+      - label: "Series Eyebrow"
+        name: "series_eyebrow"
+        widget: "string"
+
+      - label: "Series Title"
+        name: "series_title"
+        widget: "string"
+
+      - label: "Sermon Series"
+        name: "sermon_series"
+        widget: "list"
+        fields:
+          - label: "Series Title"
+            name: "title"
+            widget: "string"
+          - label: "Message Count"
+            name: "count"
+            widget: "number"
+            value_type: "int"
+          - label: "Image"
+            name: "image"
+            widget: "image"
+
+      - label: "Subscribe Eyebrow"
+        name: "subscribe_eyebrow"
+        widget: "string"
+
+      - label: "Subscribe Title"
+        name: "subscribe_title"
+        widget: "string"
+
+      - label: "Subscribe Description"
+        name: "subscribe_description"
+        widget: "text"
+
+      - label: "Subscribe Image"
+        name: "subscribe_image"
+        widget: "image"
+
+  - name: "contact"
+    label: "Contact Page"
+    folder: "src/pages/content"
+    create: false
+    delete: false
+    slug: "contact"
+    fields:
+      - label: "Header Eyebrow"
+        name: "header_eyebrow"
+        widget: "string"
+
+      - label: "Header Title"
+        name: "header_title"
+        widget: "string"
+
+      - label: "Header Description"
+        name: "header_description"
+        widget: "text"
+
+      - label: "Contact Info"
+        name: "contact_info"
+        widget: "list"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Content"
+            name: "content"
+            widget: "text"
+          - label: "Link (optional)"
+            name: "href"
+            widget: "string"
+            required: false
+
+      - label: "Service Times"
+        name: "service_times"
+        widget: "list"
+        fields:
+          - label: "Day"
+            name: "day"
+            widget: "string"
+          - label: "Time"
+            name: "time"
+            widget: "string"
+
+      - label: "Map Address"
+        name: "map_address"
+        widget: "text"
+
+      - label: "Map Image"
+        name: "map_image"
+        widget: "image"
+
+      - label: "Prayer Eyebrow"
+        name: "prayer_eyebrow"
+        widget: "string"
+
+      - label: "Prayer Title"
+        name: "prayer_title"
+        widget: "string"
+
+      - label: "Prayer Description"
+        name: "prayer_description"
+        widget: "text"
+
+      - label: "Prayer Image"
+        name: "prayer_image"
+        widget: "image"

@@ -1,42 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import siteData from './content/site.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const contactInfo = [
-  {
-    icon: MapPin,
-    title: 'Address',
-    content: 'Chapel of Joy Auditorium, Opposite Lanark Hospital, Wuraola Esan Close, opposite Trumed house, new Adeoyo road, ring road Ibadan, Nigeria',
-  },
-  {
-    icon: Phone,
-    title: 'Phone',
-    content: '+234 806 897 1709',
-    href: 'tel:+2348068971709',
-  },
-  {
-    icon: Mail,
-    title: 'Email',
-    content: 'consultation@chapelofjoychurch.com',
-    href: 'mailto:consultation@chapelofjoychurch.com',
-  },
-  {
-    icon: Clock,
-    title: 'Consulting Hours',
-    content: 'Monday to Saturday 9am to 7pm',
-  },
-];
-
-const serviceTimes = [
-  { day: 'Sunday Service', time: '9:00 AM' },
-  { day: 'Midweek Service', time: 'Tuesday 5:00 PM' },
-  { day: 'Midweek Fasting', time: 'Every Wednesday' },
-  { day: 'Quarterly Vigil', time: 'Last Friday of every quarter' },
-];
+const contactPage = siteData.contact;
+const meta = siteData.meta;
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -57,14 +29,8 @@ export function Contact() {
         '.contact-header-content',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: 'top 80%',
-          },
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: headerRef.current, start: 'top 80%' },
         }
       );
 
@@ -72,15 +38,8 @@ export function Contact() {
         '.info-card',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: infoRef.current,
-            start: 'top 70%',
-          },
+          opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
+          scrollTrigger: { trigger: infoRef.current, start: 'top 70%' },
         }
       );
 
@@ -88,14 +47,8 @@ export function Contact() {
         '.form-content',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: formRef.current,
-            start: 'top 70%',
-          },
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: formRef.current, start: 'top 70%' },
         }
       );
     });
@@ -110,48 +63,47 @@ export function Contact() {
     });
   };
 
-const encode = (data: any) => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+  const encode = (data: any) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
 
-const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encode({
-      "form-name": "contact",
-      ...formData,
-    }),
-  })
-    .then(() => {
-      toast.success("Message sent successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contact",
+        ...formData,
+      }),
     })
-    .catch(() => toast.error("Failed to send message"));
-};
+      .then(() => {
+        toast.success("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      })
+      .catch(() => toast.error("Failed to send message"));
+  };
 
   return (
     <div className="min-h-screen bg-[#F4F2EE] pt-24 lg:pt-32">
       {/* Header */}
       <div ref={headerRef} className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 pb-12">
         <div className="contact-header-content max-w-4xl">
-          <span className="text-eyebrow text-[#C69B3C] mb-4 block">Get in Touch</span>
+          <span className="text-eyebrow text-[#C69B3C] mb-4 block">{contactPage.header_eyebrow}</span>
           <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-[#111111] mb-4">
-            Contact Us
+            {contactPage.header_title}
           </h1>
           <p className="text-[#6F6A63] text-lg lg:text-xl leading-relaxed">
-            We'd love to hear from you. Whether you have a question, need prayer, 
-            or want to learn more about our church, reach out to us.
+            {contactPage.header_description}
           </p>
         </div>
       </div>
@@ -159,13 +111,16 @@ const handleSubmit = (e: React.FormEvent) => {
       {/* Contact Info Cards */}
       <div ref={infoRef} className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 pb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-          {contactInfo.map((info, index) => (
+          {contactPage.contact_info.map((info, index) => (
             <div
               key={index}
               className="info-card bg-white rounded-xl p-6 shadow-sm"
             >
               <div className="w-10 h-10 bg-[#C69B3C]/10 rounded-lg flex items-center justify-center mb-4">
-                <info.icon className="text-[#C69B3C]" size={20} />
+                {info.title === 'Address' && <MapPin className="text-[#C69B3C]" size={20} />}
+                {info.title === 'Phone' && <Phone className="text-[#C69B3C]" size={20} />}
+                {info.title === 'Email' && <Mail className="text-[#C69B3C]" size={20} />}
+                {info.title === 'Consulting Hours' && <Clock className="text-[#C69B3C]" size={20} />}
               </div>
               <h3 className="font-medium text-[#111111] mb-2">{info.title}</h3>
               {info.href ? (
@@ -192,11 +147,11 @@ const handleSubmit = (e: React.FormEvent) => {
               Send a Message
             </h2>
             <form
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="bot-field" />
@@ -294,7 +249,7 @@ const handleSubmit = (e: React.FormEvent) => {
           <div className="space-y-6">
             <div className="bg-white rounded-xl overflow-hidden shadow-sm">
               <img
-                src="/images/visit_map.jpg"
+                src={contactPage.map_image}
                 alt="Location Map"
                 className="w-full h-64 lg:h-80 object-cover"
               />
@@ -303,11 +258,10 @@ const handleSubmit = (e: React.FormEvent) => {
                   Visit Us
                 </h3>
                 <p className="text-[#6F6A63] text-sm mb-4">
-                  Chapel of Joy Auditorium, Opposite Lanark Hospital, Wuraola Esan Close, 
-                  opposite Trumed house, new Adeoyo road, ring road Ibadan, Nigeria
+                  {contactPage.map_address}
                 </p>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Chapel+of+Joy+Auditorium+Opposite+Lanark+Hospital+Wuraola+Esan+Close+new+Adeoyo+road+ring+road+Ibadan+Nigeria"
+                  href={`https://www.google.com/maps/search/?api=1&query=${meta.maps_query}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-[#C69B3C] font-medium text-sm hover:gap-3 transition-all"
@@ -323,7 +277,7 @@ const handleSubmit = (e: React.FormEvent) => {
                 Service Times
               </h3>
               <div className="space-y-3">
-                {serviceTimes.map((service, index) => (
+                {contactPage.service_times.map((service, index) => (
                   <div
                     key={index}
                     className="flex items-center justify-between py-2 border-b border-[#F4F2EE] last:border-0"
@@ -343,24 +297,24 @@ const handleSubmit = (e: React.FormEvent) => {
         <div className="relative bg-[#1a1a1a] rounded-2xl overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <img
-              src="/images/img_5.jpeg"
+              src={contactPage.prayer_image}
               alt="Worship"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="relative z-10 py-16 px-8 lg:px-16 text-center">
-            <span className="text-eyebrow text-[#C69B3C] mb-4 block">Prayer</span>
+            <span className="text-eyebrow text-[#C69B3C] mb-4 block">{contactPage.prayer_eyebrow}</span>
             <h2 className="font-serif text-3xl lg:text-4xl text-white mb-4">
-              Need Prayer?
+              {contactPage.prayer_title}
             </h2>
             <p className="text-white/70 max-w-xl mx-auto mb-8">
-              We believe in the power of prayer. Our prayer team is ready to stand 
-              with you in faith. Submit your prayer request and we'll pray for you.
+              {contactPage.prayer_description}
             </p>
             <a
-              href="mailto:consultation@chapelofjoychurch.com?subject=Prayer%20Request"
+              href={`mailto:${meta.email}?subject=Prayer%20Request`}
               className="btn-primary"
             >
+              <MessageCircle size={18} className="mr-2" />
               Submit Prayer Request
             </a>
           </div>

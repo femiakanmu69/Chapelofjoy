@@ -2,82 +2,12 @@ import { useEffect, useRef } from 'react';
 import { Play, Clock, Calendar, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import siteData from './content/site.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const YOUTUBE_URL = 'https://youtube.com/@chapelofjoy?si=xrOo7ih4_TvuP__E';
-
-const featuredSermon = {
-  title: 'Walking in Faith',
-  pastor: 'Resident Pastor Femi',
-  date: 'March 23, 2026',
-  duration: '45 min',
-  description: 'In this powerful message, we explore what it means to truly walk by faith and not by sight. Drawing from Hebrews 11, we discover how faith is the substance of things hoped for and the evidence of things not seen.',
-  image: '/images/sermon_1.jpeg',
-};
-
-const recentSermons = [
-  {
-    title: 'Peace in the Noise',
-    pastor: 'Resident Pastor Femi',
-    date: 'March 23, 2026',
-    duration: '38 min',
-    image: '/images/sermon_1_new.jpeg',
-  },
-  {
-    title: 'Love Your Neighbor',
-    pastor: 'General Overseer',
-    date: 'March 16, 2026',
-    duration: '42 min',
-    image: '/images/sermon_2_new.jpeg',
-  },
-  {
-    title: 'Faith Over Fear',
-    pastor: 'Resident Pastor Femi',
-    date: 'March 9, 2026',
-    duration: '40 min',
-    image: '/images/sermon_3_new.jpeg',
-  },
-  {
-    title: 'The Power of Prayer',
-    pastor: 'Assistant Pastor Rufus',
-    date: 'March 2, 2026',
-    duration: '35 min',
-    image: '/images/sermon_4_new.jpeg',
-  },
-  {
-    title: 'Walking in Unity',
-    pastor: 'General Overseer',
-    date: 'February 23, 2026',
-    duration: '44 min',
-    image: '/images/sermon_2_new.jpeg',
-  },
-  {
-    title: 'Gods Unfailing Love',
-    pastor: 'Resident Pastor Femi',
-    date: 'February 16, 2026',
-    duration: '39 min',
-    image: '/images/sermon_1_new.jpeg',
-  },
-];
-
-const sermonSeries = [
-  {
-    title: 'Walking in Faith',
-    count: 4,
-    image: '/images/sermon_1.jpeg',
-  },
-  {
-    title: 'Love & Relationships',
-    count: 6,
-    image: '/images/sermon_2.jpeg',
-  },
-  {
-    title: 'Finding Peace',
-    count: 3,
-    image: '/images/sermon_3.jpeg',
-  },
-];
+const sermonsPage = siteData.sermons;
+const YOUTUBE_URL = siteData.meta.youtube_url;
 
 export function Sermons() {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -91,14 +21,8 @@ export function Sermons() {
         '.sermons-header-content',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: 'top 80%',
-          },
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: headerRef.current, start: 'top 80%' },
         }
       );
 
@@ -106,14 +30,8 @@ export function Sermons() {
         '.featured-content',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: featuredRef.current,
-            start: 'top 70%',
-          },
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: featuredRef.current, start: 'top 70%' },
         }
       );
 
@@ -121,15 +39,8 @@ export function Sermons() {
         '.sermon-card',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: recentRef.current,
-            start: 'top 70%',
-          },
+          opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
+          scrollTrigger: { trigger: recentRef.current, start: 'top 70%' },
         }
       );
 
@@ -137,15 +48,8 @@ export function Sermons() {
         '.series-card',
         { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: seriesRef.current,
-            start: 'top 70%',
-          },
+          opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: 'power3.out',
+          scrollTrigger: { trigger: seriesRef.current, start: 'top 70%' },
         }
       );
     });
@@ -158,12 +62,12 @@ export function Sermons() {
       {/* Header */}
       <div ref={headerRef} className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 pb-12">
         <div className="sermons-header-content max-w-4xl">
-          <span className="text-eyebrow text-[#C69B3C] mb-4 block">Messages</span>
+          <span className="text-eyebrow text-[#C69B3C] mb-4 block">{sermonsPage.header_eyebrow}</span>
           <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-[#111111] mb-4">
-            Sermons
+            {sermonsPage.header_title}
           </h1>
           <p className="text-[#6F6A63] text-lg lg:text-xl leading-relaxed">
-            Listen to past messages from our pastors and grow in your faith journey.
+            {sermonsPage.header_description}
           </p>
         </div>
       </div>
@@ -174,8 +78,8 @@ export function Sermons() {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="relative aspect-video lg:aspect-auto">
               <img
-                src={featuredSermon.image}
-                alt={featuredSermon.title}
+                src={sermonsPage.featured_image}
+                alt={sermonsPage.featured_title}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -192,22 +96,22 @@ export function Sermons() {
             <div className="p-8 lg:p-12 flex flex-col justify-center">
               <span className="text-eyebrow text-[#C69B3C] mb-4 block">Latest Sermon</span>
               <h2 className="font-serif text-3xl lg:text-4xl text-[#111111] mb-4">
-                {featuredSermon.title}
+                {sermonsPage.featured_title}
               </h2>
               <p className="text-[#6F6A63] leading-relaxed mb-6">
-                {featuredSermon.description}
+                {sermonsPage.featured_description}
               </p>
               <div className="flex flex-wrap items-center gap-4 mb-6">
-                <span className="text-sm text-[#6F6A63]">{featuredSermon.pastor}</span>
+                <span className="text-sm text-[#6F6A63]">{sermonsPage.featured_pastor}</span>
                 <span className="w-1 h-1 bg-[#C69B3C] rounded-full" />
                 <span className="flex items-center gap-1 text-sm text-[#6F6A63]">
                   <Calendar size={14} />
-                  {featuredSermon.date}
+                  {sermonsPage.featured_date}
                 </span>
                 <span className="w-1 h-1 bg-[#C69B3C] rounded-full" />
                 <span className="flex items-center gap-1 text-sm text-[#6F6A63]">
                   <Clock size={14} />
-                  {featuredSermon.duration}
+                  {sermonsPage.featured_duration}
                 </span>
               </div>
               <a
@@ -228,9 +132,9 @@ export function Sermons() {
       <div ref={recentRef} className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 pb-16">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
           <div>
-            <span className="text-eyebrow text-[#C69B3C] mb-2 block">Previous Messages</span>
+            <span className="text-eyebrow text-[#C69B3C] mb-2 block">{sermonsPage.recent_eyebrow}</span>
             <h2 className="font-serif text-2xl lg:text-3xl text-[#111111]">
-              Recent Sermons
+              {sermonsPage.recent_title}
             </h2>
           </div>
           <a
@@ -245,7 +149,7 @@ export function Sermons() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recentSermons.map((sermon, index) => (
+          {sermonsPage.recent_sermons.map((sermon, index) => (
             <a
               key={index}
               href={YOUTUBE_URL}
@@ -289,14 +193,14 @@ export function Sermons() {
       {/* Sermon Series */}
       <div ref={seriesRef} className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-16 bg-white">
         <div className="text-center mb-12">
-          <span className="text-eyebrow text-[#C69B3C] mb-4 block">Collections</span>
+          <span className="text-eyebrow text-[#C69B3C] mb-4 block">{sermonsPage.series_eyebrow}</span>
           <h2 className="font-serif text-3xl lg:text-4xl text-[#111111]">
-            Sermon Series
+            {sermonsPage.series_title}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {sermonSeries.map((series, index) => (
+          {sermonsPage.sermon_series.map((series, index) => (
             <a
               key={index}
               href={YOUTUBE_URL}
@@ -326,19 +230,18 @@ export function Sermons() {
         <div className="relative bg-[#1a1a1a] rounded-2xl overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <img
-              src="/images/img_8.jpeg"
+              src={sermonsPage.subscribe_image}
               alt="Worship"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="relative z-10 py-16 px-8 lg:px-16 text-center">
-            <span className="text-eyebrow text-[#C69B3C] mb-4 block">Stay Updated</span>
+            <span className="text-eyebrow text-[#C69B3C] mb-4 block">{sermonsPage.subscribe_eyebrow}</span>
             <h2 className="font-serif text-3xl lg:text-4xl text-white mb-4">
-              Never Miss a Message
+              {sermonsPage.subscribe_title}
             </h2>
             <p className="text-white/70 max-w-xl mx-auto mb-8">
-              Subscribe to our YouTube channel to get notified when new 
-              sermons are available.
+              {sermonsPage.subscribe_description}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
