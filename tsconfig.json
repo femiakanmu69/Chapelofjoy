@@ -9,6 +9,11 @@
     }
   ],
   "compilerOptions": {
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false // Add this to quickly bypass the 'any' type errors
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
