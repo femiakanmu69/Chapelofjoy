@@ -4,28 +4,12 @@
     <meta charset="utf-8" />
     <title>Admin</title>
 
-    <!-- Netlify Identity -->
+    <!-- Netlify Identity (login system) -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
 
   <body>
-    <!-- Auto open login + redirect -->
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.open();
-          }
-        });
-
-        window.netlifyIdentity.on("login", () => {
-          window.netlifyIdentity.close();
-          document.location.href = "/admin/";
-        });
-      }
-    </script>
-
-    <!-- CMS -->
-    <script src="https://unpkg.com/netlify-cms@^3.0.0/dist/netlify-cms.js"></script>
+    <!-- Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   </body>
 </html>
