@@ -6,13 +6,14 @@ media_folder: "public/images"
 public_folder: "/images"
 
 collections:
-  - name: "home"
-    label: "Home Page"
-    folder: "src/pages/content"
-    create: false
-    delete: false
-    slug: "home"
-    fields:
+  - name: "pages"
+    label: "Pages"
+    delete: false # Best to keep this false for single pages
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "src/pages/content/site.json" # Point directly to the file
+        fields:
       - label: "Hero Background Image"
         name: "hero_image"
         widget: "image"
@@ -122,7 +123,7 @@ collections:
 
   - name: "events"
     label: "Events Page"
-    folder: "src/pages/content"
+    file: "src/pages/content/site.json"
     create: false
     delete: false
     slug: "events"
@@ -212,7 +213,7 @@ collections:
 
   - name: "sermons"
     label: "Sermons Page"
-    folder: "src/pages/content"
+    file: "src/pages/content/site.json"
     create: false
     delete: false
     slug: "sermons"
@@ -322,7 +323,7 @@ collections:
 
   - name: "contact"
     label: "Contact Page"
-    folder: "src/pages/content"
+    file: "src/pages/content/site.json"
     create: false
     delete: false
     slug: "contact"
