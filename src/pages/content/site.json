@@ -1,32 +1,42 @@
 {
   "meta": {
+    "maps_query": "Chapel+of+Joy+Auditorium+Opposite+Lanark+Hospital+Wuraola+Esan+Close+new+Adeoyo+road+ring+road+Ibadan+Nigeria",
     "church_name": "Chapel Of Joy",
-    "church_subtitle": "In the name of Jesus Pentecostal Mission",
-    "tagline": "Where your joy is full.",
-    "youtube_url": "https://youtube.com/@chapelofjoy?si=xrOo7ih4_TvuP__E",
-    "phone": "+234 806 897 1709",
-    "email": "consultation@chapelofjoychurch.com",
     "office_hours": "Monday to Saturday 9am to 7pm",
+    "phone": "+234 806 897 1709",
+    "tagline": "Where your joy is full.",
+    "church_subtitle": "In the name of Jesus Pentecostal Mission",
+    "youtube_url": "https://youtube.com/@chapelofjoy?si=xrOo7ih4_TvuP__E",
     "address": "Chapel of Joy Auditorium, Opposite Lanark Hospital, Wuraola Esan Close, opposite Trumed house, new Adeoyo road, ring road Ibadan, Nigeria",
-    "maps_query": "Chapel+of+Joy+Auditorium+Opposite+Lanark+Hospital+Wuraola+Esan+Close+new+Adeoyo+road+ring+road+Ibadan+Nigeria"
+    "email": "consultation@chapelofjoychurch.com"
   },
   "home": {
-    "hero_image": "/images/img_4.jpeg",
+    "welcome_paragraph_1": "Chapel Of Joy has been serving the Ibadan community for over 35 years. We're a diverse group of people united by our love for Jesus and our desire to make a difference in our community.",
+    "welcome_paragraph_2": "Our mission is to help people find their way back to God through authentic worship, biblical teaching, and loving community. Whether you're new to faith or have been following Jesus for years, there's a place for you here.",
     "hero_eyebrow": "In the name of Jesus Pentecostal mission",
+    "welcome_stat_label": "Years of Service",
+    "ministries_eyebrow": "Get Involved",
+    "cta_title": "Ready to take the next step?",
+    "welcome_eyebrow": "About Us",
+    "cta_image": "/images/img_7.jpeg",
+    "cta_description": "We'd love to connect with you and help you find your place in our community.",
     "hero_title": "CHAPEL OF JOY",
-    "hero_subtitle": "Where your joy is full.",
-    "hero_service_time": "Sundays at 9:00 AM",
+    "hero_image": "/images/img_4.jpeg",
+    "ministries_title": "Our Ministries",
+    "welcome_stat_number": "35+",
+    "cta_eyebrow": "Get Involved",
     "hero_location": "Ibadan, Nigeria",
+    "welcome_title": "Welcome to Chapel Of Joy",
     "upcoming_events": [
       {
-        "title": "Easter Service",
-        "date": "Apr 3",
+        "title": "Sunday Service",
+        "date": "Every Sunday",
         "time": "Friday • 5:00pm • Sanctuary",
         "image": "/images/img_11.jpeg"
       },
       {
-        "title": "Easter Celebration",
-        "date": "Apr 5",
+        "title": "Sunday Service",
+        "date": "Every Sunday",
         "time": "Sunday • 9:00am • Sanctuary",
         "image": "/images/img_11.jpeg"
       },
@@ -37,15 +47,7 @@
         "image": "/images/img_7.jpeg"
       }
     ],
-    "welcome_eyebrow": "About Us",
-    "welcome_title": "Welcome to Chapel Of Joy",
-    "welcome_paragraph_1": "Chapel Of Joy has been serving the Ibadan community for over 35 years. We're a diverse group of people united by our love for Jesus and our desire to make a difference in our community.",
-    "welcome_paragraph_2": "Our mission is to help people find their way back to God through authentic worship, biblical teaching, and loving community. Whether you're new to faith or have been following Jesus for years, there's a place for you here.",
-    "welcome_image": "/images/img_6.jpeg",
-    "welcome_stat_number": "35+",
-    "welcome_stat_label": "Years of Service",
-    "ministries_eyebrow": "Get Involved",
-    "ministries_title": "Our Ministries",
+    "hero_service_time": "Sundays at 9:00 AM",
     "ministries": [
       {
         "title": "Men's Fellowship",
@@ -63,15 +65,19 @@
         "image": "/images/img_10.jpeg"
       }
     ],
-    "cta_eyebrow": "Get Involved",
-    "cta_title": "Ready to take the next step?",
-    "cta_description": "We'd love to connect with you and help you find your place in our community.",
-    "cta_image": "/images/img_7.jpeg"
+    "hero_subtitle": "Where your joy is full.",
+    "welcome_image": "/images/img_6.jpeg"
   },
   "events": {
-    "header_eyebrow": "Church Events",
     "header_title": "Upcoming Events",
+    "service_times_eyebrow": "Service Times",
     "header_description": "There's always something happening at Chapel Of Joy. Join us for worship, fellowship, and community activities.",
+    "location_address": "Chapel of Joy Auditorium, Opposite Lanark Hospital, Wuraola Esan Close, opposite Trumed house, new Adeoyo road, ring road Ibadan, Nigeria",
+    "location_map_image": "/images/visit_map.jpg",
+    "location_title": "Visit Us in Ibadan",
+    "service_times_title": "Join Us This Week",
+    "header_eyebrow": "Church Events",
+    "service_times_image": "/images/img_7.jpeg",
     "events": [
       {
         "title": "Sunday Worship Service",
@@ -128,10 +134,7 @@
         "category": "Quarterly"
       }
     ],
-    "service_times_eyebrow": "Service Times",
-    "service_times_title": "Join Us This Week",
     "service_times_description": "We gather regularly to worship, learn, and grow together. No matter where you are in your faith journey, you are welcome here.",
-    "service_times_image": "/images/img_7.jpeg",
     "service_times": [
       {
         "day": "Sunday Service",
@@ -150,23 +153,10 @@
         "time": "Last Friday of every quarter"
       }
     ],
-    "location_eyebrow": "Location",
-    "location_title": "Visit Us in Ibadan",
-    "location_address": "Chapel of Joy Auditorium, Opposite Lanark Hospital, Wuraola Esan Close, opposite Trumed house, new Adeoyo road, ring road Ibadan, Nigeria",
-    "location_map_image": "/images/visit_map.jpg"
+    "location_eyebrow": "Location"
   },
   "sermons": {
-    "header_eyebrow": "Messages",
-    "header_title": "Sermons",
-    "header_description": "Listen to past messages from our pastors and grow in your faith journey.",
-    "featured_title": "Walking in Faith",
-    "featured_pastor": "Resident Pastor Femi",
-    "featured_date": "March 23, 2026",
-    "featured_duration": "45 min",
-    "featured_description": "In this powerful message, we explore what it means to truly walk by faith and not by sight. Drawing from Hebrews 11, we discover how faith is the substance of things hoped for and the evidence of things not seen.",
-    "featured_image": "/images/sermon_1.jpeg",
-    "recent_eyebrow": "Previous Messages",
-    "recent_title": "Recent Sermons",
+    "series_eyebrow": "Collections",
     "recent_sermons": [
       {
         "title": "Peace in the Noise",
@@ -211,8 +201,16 @@
         "image": "/images/sermon_1_new.jpeg"
       }
     ],
-    "series_eyebrow": "Collections",
-    "series_title": "Sermon Series",
+    "subscribe_title": "Never Miss a Message",
+    "recent_eyebrow": "Previous Messages",
+    "featured_duration": "45 min",
+    "header_title": "Sermons",
+    "subscribe_image": "/images/img_8.jpeg",
+    "featured_pastor": "Resident Pastor Femi",
+    "subscribe_description": "Subscribe to our YouTube channel to get notified when new sermons are available.",
+    "featured_title": "Walking in Faith",
+    "header_description": "Listen to past messages from our pastors and grow in your faith journey.",
+    "featured_image": "/images/sermon_1.jpeg",
     "sermon_series": [
       {
         "title": "Walking in Faith",
@@ -230,13 +228,17 @@
         "image": "/images/sermon_3.jpeg"
       }
     ],
+    "featured_description": "In this powerful message, we explore what it means to truly walk by faith and not by sight. Drawing from Hebrews 11, we discover how faith is the substance of things hoped for and the evidence of things not seen.",
+    "series_title": "Sermon Series",
     "subscribe_eyebrow": "Stay Updated",
-    "subscribe_title": "Never Miss a Message",
-    "subscribe_description": "Subscribe to our YouTube channel to get notified when new sermons are available.",
-    "subscribe_image": "/images/img_8.jpeg"
+    "recent_title": "Recent Sermons",
+    "header_eyebrow": "Messages",
+    "featured_date": "March 23, 2026"
   },
   "contact": {
-    "header_eyebrow": "Get in Touch",
+    "prayer_title": "Need Prayer?",
+    "prayer_image": "/images/img_5.jpeg",
+    "prayer_description": "We believe in the power of prayer. Our prayer team is ready to stand with you in faith. Submit your prayer request and we'll pray for you.",
     "header_title": "Contact Us",
     "header_description": "We'd love to hear from you. Whether you have a question, need prayer, or want to learn more about our church, reach out to us.",
     "contact_info": [
@@ -259,6 +261,10 @@
         "content": "Monday to Saturday 9am to 7pm"
       }
     ],
+    "map_address": "Chapel of Joy Auditorium, Opposite Lanark Hospital, Wuraola Esan Close, opposite Trumed house, new Adeoyo road, ring road Ibadan, Nigeria",
+    "prayer_eyebrow": "Prayer",
+    "header_eyebrow": "Get in Touch",
+    "map_image": "/images/visit_map.jpg",
     "service_times": [
       {
         "day": "Sunday Service",
@@ -276,12 +282,6 @@
         "day": "Quarterly Vigil",
         "time": "Last Friday of every quarter"
       }
-    ],
-    "map_address": "Chapel of Joy Auditorium, Opposite Lanark Hospital, Wuraola Esan Close, opposite Trumed house, new Adeoyo road, ring road Ibadan, Nigeria",
-    "map_image": "/images/visit_map.jpg",
-    "prayer_eyebrow": "Prayer",
-    "prayer_title": "Need Prayer?",
-    "prayer_description": "We believe in the power of prayer. Our prayer team is ready to stand with you in faith. Submit your prayer request and we'll pray for you.",
-    "prayer_image": "/images/img_5.jpeg"
+    ]
   }
 }
